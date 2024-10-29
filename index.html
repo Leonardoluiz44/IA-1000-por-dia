@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robô Lucrativo da Blaze</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #111; /* Cor de fundo escura */
+            color: #fff; /* Texto branco */
+            font-family: Arial, sans-serif;
+        }
+        .hero {
+            background-color: #f00; /* Vermelho da Blaze */
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .btn-promocao {
+            background-color: #ffc107; /* Amarelo da Blaze */
+            color: black;
+            font-size: 1.5em;
+            padding: 10px 30px;
+            transition: background-color 0.3s;
+        }
+        .btn-promocao:hover {
+            background-color: #e0a800; /* Amarelo escuro */
+        }
+        .countdown {
+            font-size: 2em;
+            color: #28a745; /* Verde para contagem */
+            margin-top: 20px;
+        }
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .section-title {
+            margin-bottom: 20px;
+        }
+        .feature {
+            background-color: #222; /* Fundo de seção */
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .client-result {
+            margin: 20px 0;
+        }
+        .client-result img {
+            width: 100%; /* Ajusta a imagem para a largura do container */
+            border-radius: 5px;
+        }
+        .client-testimonial {
+            margin-top: 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Robô Lucrativo da Blaze</h1>
+        <p>Ex funcionário da Blaze vazou robô do Double feito por IA!</p>
+        <div id="timer" class="countdown"></div>
+        <a href="https://w.app/ckSYDx" class="btn btn-promocao mt-4" id="buyButton">IA só hoje: R$ 24,99</a>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Por que escolher nosso robô?</h2>
+        <div class="row">
+            <div class="col-md-4 feature">
+                <h3>Resultados Comprovados</h3>
+                <p>Desenvolvido por especialistas, nosso robô tem um histórico de resultados positivos, proporcionando lucros consistentes.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <h3>Fácil de Usar</h3>
+                <p>Com uma interface intuitiva, você pode começar a lucrar em questão de minutos, mesmo sem experiência prévia.</p>
+            </div>
+            <div class="col-md-4 feature">
+                <h3>Suporte 24/7</h3>
+                <p>Nossa equipe está sempre disponível para ajudá-lo a maximizar seus lucros e resolver qualquer dúvida.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Resultados de Clientes</h2>
+        <div class="client-result">
+            <img src="https://via.placeholder.com/600x300?text=Banca+Alta+1" alt="Resultado de Cliente 1">
+            <p class="client-testimonial">"Graças ao robô da Blaze, minha banca triplicou em uma semana! - João S."</p>
+        </div>
+        <div class="client-result">
+            <img src="https://via.placeholder.com/600x300?text=Banca+Alta+2" alt="Resultado de Cliente 2">
+            <p class="client-testimonial">"O PIX caiu na minha conta em menos de 24 horas. Estou impressionada! - Maria L."</p>
+        </div>
+        <div class="client-result">
+            <img src="https://via.placeholder.com/600x300?text=Banca+Alta+3" alt="Resultado de Cliente 3">
+            <p class="client-testimonial">"Nunca pensei que poderia lucrar tanto com apostas online. Recomendo! - Carlos M."</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Robô Lucrativo da Blaze. Todos os direitos reservados.</p>
+        <p><a href="#" style="color: #ffc107;">Termos de Serviço</a> | <a href="#" style="color: #ffc107;">Política de Privacidade</a></p>
+    </footer>
+
+    <script>
+        // Configuração do cronômetro de contagem regressiva de 24 horas
+        const countdown = () => {
+            const now = new Date().getTime();
+            const endTime = now + 24 * 60 * 60 * 1000; // 24 horas a partir de agora
+
+            const timer = setInterval(() => {
+                const currentTime = new Date().getTime();
+                const distance = endTime - currentTime;
+
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("timer").innerHTML = `${hours}h ${minutes}m ${seconds}s`;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("timer").innerHTML = "Promoção expirada";
+                    document.getElementById("buyButton").style.display = 'none'; // Ocultar botão após expiração
+                }
+            }, 1000);
+        };
+
+        countdown(); // Inicia o cronômetro
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
